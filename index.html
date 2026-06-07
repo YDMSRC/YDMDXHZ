@@ -370,6 +370,47 @@
             box-shadow: 0 0 8px rgba(255,143,187,.5);
         }
         
+        /* 服务器状态卡片 */
+        .server-status-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        
+        .server-status-header svg {
+            color: #5BF78A;
+        }
+        
+        .server-status-header span {
+            color: var(--text);
+            font-size: 13px;
+            font-weight: 600;
+        }
+        
+        .server-status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: rgba(91,247,138,.1);
+            border: 1px solid rgba(91,247,138,.3);
+            border-radius: 20px;
+        }
+        
+        .server-status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #5BF78A;
+        }
+        
+        .server-status-text {
+            color: #5BF78A;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        
         /* 通知消息 */
         .notification {
             position: fixed;
@@ -587,6 +628,36 @@
             display: block;
         }
         
+        /* 免责声明滚动条 */
+        .disclaimer-scroll {
+            max-height: 250px;
+            overflow-y: auto;
+            padding-right: 5px;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255,143,187,.4) transparent;
+        }
+        
+        .disclaimer-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .disclaimer-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        
+        .disclaimer-scroll::-webkit-scrollbar-thumb {
+            background: rgba(255,143,187,.4);
+            border-radius: 3px;
+        }
+        
+        .disclaimer-scroll::-webkit-scrollbar-thumb:hover {
+            background: rgba(255,143,187,.6);
+        }
+        
+        .disclaimer-scroll p {
+            margin-bottom: 10px;
+        }
+        
         .modal-content p {
             margin-bottom: 8px;
         }
@@ -673,11 +744,68 @@
             font-size: 13px;
         }
         
+        /* 代码日志样式 */
+        .code-log-list {
+            max-height: 300px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            background: rgba(0,0,0,.3);
+            border-radius: 8px;
+            padding: 8px;
+        }
+        
+        .code-log-list::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .code-log-list::-webkit-scrollbar-track {
+            background: rgba(255,255,255,.05);
+            border-radius: 3px;
+        }
+        
+        .code-log-list::-webkit-scrollbar-thumb {
+            background: rgba(255,143,187,.3);
+            border-radius: 3px;
+        }
+        
+        .code-log-item {
+            padding: 4px 8px;
+            margin-bottom: 4px;
+            background: rgba(255,255,255,.03);
+            border-left: 2px solid var(--accent);
+            border-radius: 0 4px 4px 0;
+            word-break: break-all;
+        }
+        
+        .code-log-item .log-time {
+            color: rgba(91,143,227,.6);
+            font-size: 10px;
+        }
+        
+        .code-log-item .log-method {
+            color: #5BF78E;
+            font-weight: bold;
+        }
+        
+        .code-log-item .log-url {
+            color: rgba(252,220,236,.8);
+            word-break: break-all;
+        }
+        
+        .code-log-item .log-success {
+            color: #5BF78E;
+        }
+        
+        .code-log-item .log-fail {
+            color: #FF6B6B;
+        }
+        
         /* 公告样式 */
         .announcement {
             width: 100%;
             max-width: 400px;
-            margin: 0 auto 25px auto;
+            margin: 0 auto 15px auto;
             background:
                 radial-gradient(ellipse 80% 60% at 50% -10%, rgba(255,143,187,.12) 0%, transparent 55%),
                 rgba(255,143,187,.08);
@@ -692,6 +820,39 @@
             cursor: pointer;
             overflow: hidden;
             transition: all 0.3s ease;
+        }
+        
+        /* QQ群按钮 */
+        .qq-group-btn {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto 20px auto;
+            padding: 12px 16px;
+            background: linear-gradient(135deg, rgba(255,143,187,.15) 0%, rgba(165,140,255,.15) 50%, rgba(91,143,227,.15) 100%);
+            border: 1px solid rgba(255,143,187,.3);
+            border-radius: 12px;
+            text-align: center;
+            font-size: 14px;
+            color: var(--text);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .qq-group-btn:hover {
+            background: linear-gradient(135deg, rgba(255,143,187,.25) 0%, rgba(165,140,255,.25) 50%, rgba(91,143,227,.25) 100%);
+            border-color: rgba(255,143,187,.5);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255,143,187,.2);
+        }
+        
+        .qq-group-btn:active {
+            transform: translateY(0) scale(0.98);
         }
         
         .announcement:hover {
@@ -833,6 +994,115 @@
             .announcement.expanded .announcement-content {
                 padding: 0 14px 10px 14px;
             }
+            
+            /* 模态框手机适配 */
+            .modal {
+                padding: 25px 15px;
+                border-radius: 16px;
+            }
+            
+            .modal-title {
+                font-size: 18px;
+            }
+            
+            .modal-options {
+                gap: 8px;
+            }
+            
+            .modal-option {
+                padding: 10px 14px;
+                font-size: 13px;
+            }
+            
+            .modal-content {
+                padding: 15px;
+            }
+            
+            .modal-content p {
+                font-size: 12px;
+                line-height: 1.6;
+            }
+            
+            /* 服务状态手机适配 */
+            .server-status-header {
+                margin-bottom: 10px;
+            }
+            
+            .server-status-badge {
+                padding: 5px 10px;
+                font-size: 10px;
+            }
+            
+            /* 日志手机适配 */
+            .log-header {
+                font-size: 13px;
+                padding: 8px 12px;
+            }
+            
+            .clear-log-btn {
+                padding: 6px 12px;
+                font-size: 11px;
+            }
+            
+            .log-list {
+                max-height: 200px;
+            }
+            
+            .log-item {
+                padding: 10px 12px;
+                font-size: 11px;
+            }
+            
+            /* 代码日志手机适配 */
+            .code-log-list {
+                max-height: 200px;
+                font-size: 10px;
+            }
+            
+            .code-log-item {
+                padding: 8px 10px;
+            }
+            
+            /* QQ群按钮手机适配 */
+            .qq-group-btn {
+                padding: 10px 16px;
+                font-size: 12px;
+            }
+            
+            /* 输入框手机适配 */
+            .input-label {
+                font-size: 13px;
+            }
+            
+            .input-icon {
+                width: 18px;
+                height: 18px;
+            }
+            
+            /* 进度条和计数手机适配 */
+            .progress-container {
+                height: 6px;
+            }
+            
+            .counter {
+                font-size: 12px;
+            }
+            
+            /* 关于按钮手机适配 */
+            .about-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+            
+            /* 关闭按钮手机适配 */
+            .close-modal {
+                width: 30px;
+                height: 30px;
+                font-size: 20px;
+                top: 10px;
+                right: 10px;
+            }
         }
     </style>
 </head>
@@ -859,21 +1129,25 @@
             <ul class="modal-options" id="modalOptions">
                 <li class="modal-option" data-target="disclaimer">免责声明</li>
                 <li class="modal-option" data-target="about-dev">关于开发者</li>
-                <li class="modal-option" data-target="operation-log">操作日志</li>
+                <li class="modal-option" data-target="operation-log">轰炸记录</li>
+                <li class="modal-option" data-target="code-log">代码日志</li>
+                <li class="modal-option" data-target="server-status">服务状态</li>
             </ul>
             
             <!-- 免责声明内容 -->
             <div class="modal-content" id="disclaimer">
-                <p>1. 本工具仅用于学习和测试，严禁用于非法用途或骚扰他人。</p>
-                <p>2. 使用本工具造成的一切法律责任和后果，由使用者自行承担。</p>
-                <p>3. 请尊重他人隐私，合理使用网络资源。</p>
-                <p>4. 如因滥用本工具导致任何损失，开发者不承担任何责任。</p>
-                <p>5. 本工具仅提供技术演示，不保证任何API的可用性和稳定性。</p>
-                <p>6. 使用本工具即表示同意遵守所有相关法律法规和平台规定。</p>
-                <p>7. 严禁利用本工具进行任何形式的骚扰、攻击或违法活动。</p>
-                <p>8. 开发者有权随时停止提供服务或修改工具功能，无需提前通知。</p>
-                <p>9. 任何因使用本工具造成的账户封禁、法律诉讼等后果，与开发者无关。</p>
-                <p>10. 请在使用前充分了解相关法律风险，谨慎操作。</p>
+                <div class="disclaimer-scroll">
+                    <p>1. 本工具仅用于学习和测试，严禁用于非法用途或骚扰他人。</p>
+                    <p>2. 使用本工具造成的一切法律责任和后果，由使用者自行承担。</p>
+                    <p>3. 请尊重他人隐私，合理使用网络资源。</p>
+                    <p>4. 如因滥用本工具导致任何损失，开发者不承担任何责任。</p>
+                    <p>5. 本工具仅提供技术演示，不保证任何API的可用性和稳定性。</p>
+                    <p>6. 使用本工具即表示同意遵守所有相关法律法规和平台规定。</p>
+                    <p>7. 严禁利用本工具进行任何形式的骚扰、攻击或违法活动。</p>
+                    <p>8. 开发者有权随时停止提供服务或修改工具功能，无需提前通知。</p>
+                    <p>9. 任何因使用本工具造成的账户封禁、法律诉讼等后果，与开发者无关。</p>
+                    <p>10. 请在使用前充分了解相关法律风险，谨慎操作。</p>
+                </div>
             </div>
             
             <!-- 关于开发者内容 -->
@@ -882,6 +1156,21 @@
                 <p>版本：2.0</p>
                 <p>声明：本工具仅用于个人Web开发学习，无任何商业用途或非法行为。</p>
                 <p>请勿用于非法用途！违者拉黑IP处理！</p>
+                <a href="https://qm.qq.com/q/ResA726rya" target="_blank" class="qq-group-btn" style="margin-top: 15px;">
+                    💬 加入QQ群交流
+                </a>
+            </div>
+            
+            <!-- 服务状态内容 -->
+            <div class="modal-content" id="server-status">
+                <div class="server-status-header">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M3 12l3-7 3 14 3-10 3 6 3-4 3 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>服务状态</span>
+                </div>
+                <div class="server-status-badge">
+                    <span class="server-status-dot"></span>
+                    <span class="server-status-text">节点运行正常</span>
+                </div>
             </div>
             
             <!-- 操作日志内容 -->
@@ -891,6 +1180,17 @@
                     <button class="clear-log-btn" onclick="clearLog()">清空日志</button>
                 </div>
                 <div class="log-list" id="logList">
+                    <p class="log-empty">暂无记录</p>
+                </div>
+            </div>
+            
+            <!-- 代码日志内容 -->
+            <div class="modal-content" id="code-log">
+                <div class="log-header">
+                    <span>代码日志</span>
+                    <button class="clear-log-btn" onclick="clearCodeLog()">清空日志</button>
+                </div>
+                <div class="code-log-list" id="codeLogList">
                     <p class="log-empty">暂无记录</p>
                 </div>
             </div>
@@ -912,14 +1212,14 @@
         <!-- 公告 -->
         <div class="announcement" id="announcement" onclick="toggleAnnouncement()">
             <div class="announcement-header">
-                📢 6-7更新日志
+                📢 6-8更新日志
                 <span class="announcement-arrow" id="announcementArrow">▼</span>
             </div>
             <div class="announcement-content" id="announcementContent">
-                <p>• 优化UI，采用4399风格玻璃态设计</p>
-                <p>• 添加粉紫色渐变背景和动态效果</p>
-                <p>• 美化按钮和输入框样式</p>
-                <p>• 新增操作日志记录功能</p>
+                <p>• 新增代码日志功能</p>
+                <p>• 新增服务状态显示功能</p>
+                <p>• 全面适配手机端显示</p>
+                <p>• 免责声明添加滚动条</p>
                 <p style="color: #FFB3D1; font-weight: 500;">⚠️ 注意：可能有部分验证码无法成功发送！</p>
             </div>
         </div>
@@ -1027,6 +1327,77 @@
                 localStorage.removeItem(LOG_STORAGE_KEY);
                 renderLogs();
                 showNotification('日志已清空', 'success');
+            }
+        }
+        
+        // 代码日志相关
+        const CODE_LOG_STORAGE_KEY = 'sms_bomber_code_logs';
+        
+        function addCodeLog(method, url, status, error = '') {
+            const logs = getCodeLogs();
+            const now = new Date();
+            const log = {
+                id: Date.now(),
+                method: method,
+                url: url,
+                status: status,
+                error: error,
+                time: now.toLocaleTimeString('zh-CN', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                }),
+                timestamp: now.getTime()
+            };
+            logs.unshift(log);
+            if (logs.length > 200) {
+                logs.pop();
+            }
+            saveCodeLogs(logs);
+        }
+        
+        function getCodeLogs() {
+            try {
+                const logs = localStorage.getItem(CODE_LOG_STORAGE_KEY);
+                return logs ? JSON.parse(logs) : [];
+            } catch (e) {
+                return [];
+            }
+        }
+        
+        function saveCodeLogs(logs) {
+            try {
+                localStorage.setItem(CODE_LOG_STORAGE_KEY, JSON.stringify(logs));
+            } catch (e) {
+                console.error('保存代码日志失败', e);
+            }
+        }
+        
+        function renderCodeLogs() {
+            const codeLogList = document.getElementById('codeLogList');
+            const logs = getCodeLogs();
+            
+            if (logs.length === 0) {
+                codeLogList.innerHTML = '<p class="log-empty">暂无记录</p>';
+                return;
+            }
+            
+            codeLogList.innerHTML = logs.map(log => `
+                <div class="code-log-item">
+                    <span class="log-time">[${log.time}]</span>
+                    <span class="log-method">${log.method}</span>
+                    <span class="log-url">${log.url}</span>
+                    <span class="${log.status === 'success' ? 'log-success' : 'log-fail'}">${log.status === 'success' ? '✓' : '✗'}</span>
+                    ${log.error ? `<span class="log-fail">${log.error}</span>` : ''}
+                </div>
+            `).join('');
+        }
+        
+        function clearCodeLog() {
+            if (confirm('确定要清空代码日志吗？')) {
+                localStorage.removeItem(CODE_LOG_STORAGE_KEY);
+                renderCodeLogs();
+                showNotification('代码日志已清空', 'success');
             }
         }
         
@@ -1167,9 +1538,13 @@
                 });
                 document.getElementById(targetId).classList.add('active');
                 
-                // 如果显示的是操作日志，渲染日志
+                // 如果显示的是轰炸记录，渲染日志
                 if (targetId === 'operation-log') {
                     renderLogs();
+                }
+                // 如果显示的是代码日志，渲染日志
+                if (targetId === 'code-log') {
+                    renderCodeLogs();
                 }
             }
         });
@@ -5161,8 +5536,10 @@ const apiRequests = [
                         }).then(response => {
                             if (response.ok) {
                                 successCount++; // 请求成功
+                                addCodeLog('GET', urlWithParams, 'success');
                             } else {
                                 failureCount++; // 请求失败
+                                addCodeLog('GET', urlWithParams, 'fail', `HTTP ${response.status}`);
                             }
                             
                             // 更新进度
@@ -5170,6 +5547,7 @@ const apiRequests = [
                         }).catch(error => {
                             failureCount++; // 请求失败
                             console.error(`GET 请求失败: ${apiRequest.url}`, error);
+                            addCodeLog('GET', urlWithParams, 'fail', error.message);
                             updateProgress(successCount + failureCount, totalRequests);
                         });
                     } else if (apiRequest.method && apiRequest.method === 'POST_JSON') {
@@ -5183,13 +5561,16 @@ const apiRequests = [
                         }).then(response => {
                             if (response.ok) {
                                 successCount++; // 请求成功
+                                addCodeLog('POST_JSON', apiRequest.url, 'success');
                             } else {
                                 failureCount++; // 请求失败
+                                addCodeLog('POST_JSON', apiRequest.url, 'fail', `HTTP ${response.status}`);
                             }
                             updateProgress(successCount + failureCount, totalRequests);
                         }).catch(error => {
                             failureCount++; // 请求失败
                             console.error(`POST_JSON 请求失败: ${apiRequest.url}`, error);
+                            addCodeLog('POST_JSON', apiRequest.url, 'fail', error.message);
                             updateProgress(successCount + failureCount, totalRequests);
                         });
                     } else if (apiRequest.method && apiRequest.method === 'POST_FORM') {
@@ -5209,13 +5590,16 @@ const apiRequests = [
                         }).then(response => {
                             if (response.ok) {
                                 successCount++; // 请求成功
+                                addCodeLog('POST_FORM', apiRequest.url, 'success');
                             } else {
                                 failureCount++; // 请求失败
+                                addCodeLog('POST_FORM', apiRequest.url, 'fail', `HTTP ${response.status}`);
                             }
                             updateProgress(successCount + failureCount, totalRequests);
                         }).catch(error => {
                             failureCount++; // 请求失败
                             console.error(`POST_FORM 请求失败: ${apiRequest.url}`, error);
+                            addCodeLog('POST_FORM', apiRequest.url, 'fail', error.message);
                             updateProgress(successCount + failureCount, totalRequests);
                         });
                     } else {
@@ -5229,13 +5613,16 @@ const apiRequests = [
                         }).then(response => {
                             if (response.ok) {
                                 successCount++; // 请求成功
+                                addCodeLog('POST', apiRequest.url, 'success');
                             } else {
                                 failureCount++; // 请求失败
+                                addCodeLog('POST', apiRequest.url, 'fail', `HTTP ${response.status}`);
                             }
                             updateProgress(successCount + failureCount, totalRequests);
                         }).catch(error => {
                             failureCount++; // 请求失败
                             console.error(`POST 请求失败: ${apiRequest.url}`, error);
+                            addCodeLog('POST', apiRequest.url, 'fail', error.message);
                             updateProgress(successCount + failureCount, totalRequests);
                         });
                     }
